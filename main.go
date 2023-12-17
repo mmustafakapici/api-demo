@@ -19,7 +19,7 @@ func main() {
 	// /list rotası
 	r.GET("/list", handlers.ListCoinsHandler)
 
-	r.Run(":8080")
+	//r.Run(":8080")
 
 	port := os.Getenv("PORT")
 
