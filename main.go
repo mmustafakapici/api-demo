@@ -16,6 +16,8 @@ func main() {
 	// / rotası
 	r.GET("/", handlers.HomeHandler)
 
+	r.GET("/hello", handlers.HelloHandler)
+
 	// /ping rotası
 	r.GET("/ping", handlers.PingHandler)
 
