@@ -25,7 +25,7 @@ func main() {
 	r.GET("/list", handlers.ListCoinsHandler)
 
 	// Coingecko veri çekme işlemini belirli aralıklarla sürekli olarak yapacak bir goroutine başlat
-	go handlers.FetchCoinDataPeriodically(60 * time.Second)
+	//go handlers.FetchCoinDataPeriodically(60 * time.Second)
 
 	//r.Run(":8080")
 
