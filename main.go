@@ -1,3 +1,5 @@
+// main.go dosyası api-demo projesinin giriş noktasıdır.
+
 package main
 
 import (
@@ -5,6 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"log"
 	"os"
+	"time"
 )
 
 func main() {
@@ -18,6 +21,9 @@ func main() {
 
 	// /list rotası
 	r.GET("/list", handlers.ListCoinsHandler)
+
+	// Coingecko veri çekme işlemini belirli aralıklarla sürekli olarak yapacak bir goroutine başlat
+	go handlers.FetchCoinDataPeriodically(120 * time.Second)
 
 	//r.Run(":8080")
 
