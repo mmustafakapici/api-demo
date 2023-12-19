@@ -55,6 +55,8 @@ func ListCoinsHandler(c *gin.Context) {
 	if len(coinCache.Data) == 0 {
 		c.JSON(http.StatusNotFound, gin.H{
 			"error": "Veri bulunamadı. Lütfen daha sonra tekrar deneyin.",
+			"link":  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false",
+			"ping":  "https://api.coingecko.com/apzi/v3/ping"
 		})
 		return
 	}
@@ -65,7 +67,7 @@ func ListCoinsHandler(c *gin.Context) {
 func FetchCoinDataPeriodically(interval time.Duration) {
 	for {
 		// Coingecko API'sine GET isteği göndermek için HTTP istemcisi oluşturun
-		resp, err := http.Get("https://api.coingecko.com/apzi/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false")
+		resp, err := http.Get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false")
 		if err != nil {
 			// Hata oluştuğunda log kaydı alabilirsiniz
 			// log.Printf("CoinGecko API'ye bağlanırken bir hata oluştu: %v", err)
