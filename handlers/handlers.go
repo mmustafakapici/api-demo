@@ -54,9 +54,9 @@ func PingHandler(c *gin.Context) {
 func ListCoinsHandler(c *gin.Context) {
 	if len(coinCache.Data) == 0 {
 		c.JSON(http.StatusNotFound, gin.H{
-			"error": "Veri bulunamadı. Lütfen daha sonra tekrar deneyin.",
+			"error": "Veri bulunamadı. Lütfen daha sonra tekrar deneyin. , ",
 			"link":  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false",
-			"ping":  "https://api.coingecko.com/apzi/v3/ping",
+			"ping":  "https://api.coingecko.com/api/v3/ping",
 		})
 		return
 	}
